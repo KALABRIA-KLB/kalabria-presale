@@ -4,91 +4,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalabria Token (KLB) - Presale e Rinascita</title>
+    <title>Kalabria Token (KLB) - Presale</title>
     <style>
-        body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #000; color: #fff; }
-        header { background: linear-gradient(90deg, #8B0000, #FF4500); padding: 30px; text-align: center; }
-        header img { width: 80px; border-radius: 50%; border: 2px solid gold; }
-        header h1 { font-size: 36px; margin: 10px 0; }
-        nav { margin-top: 15px; }
-        nav a { color: gold; margin: 0 10px; text-decoration: none; font-weight: bold; font-size: 16px; }
-        section { padding: 30px 15px; text-align: center; }
-        section h2 { color: #FF4500; font-size: 28px; margin-bottom: 15px; }
-        section p { max-width: 600px; margin: 0 auto 15px; font-size: 16px; line-height: 1.6; }
-        .highlight { color: gold; font-weight: bold; }
-        .cta-button { background-color: gold; color: #000; padding: 12px 25px; text-decoration: none; border-radius: 8px; margin: 8px; font-size: 16px; display: inline-block; transition: background 0.3s; }
-        .cta-button:hover { background-color: #FF4500; color: #fff; }
-        .slider { display: flex; overflow-x: auto; gap: 10px; padding: 10px; justify-content: center; }
-        .slider img { width: 250px; height: auto; border-radius: 8px; box-shadow: 0 0 10px #FF4500; }
-        input, button { padding: 10px; margin: 8px; font-size: 14px; width: 80%; max-width: 300px; }
-        footer { background-color: #111; padding: 15px; text-align: center; font-size: 12px; color: #777; }
-        @media (max-width: 600px) {
-            header h1 { font-size: 28px; }
-            section h2 { font-size: 22px; }
-            nav a { font-size: 14px; margin: 0 5px; }
-        }
+        body { margin: 0; font-family: Arial, sans-serif; background: #000; color: #fff; text-align: center; }
+        header { padding: 30px 20px; }
+        header img { width: 80px; border-radius: 50%; border: 2px solid gold; margin-bottom: 15px; }
+        header h1 { font-size: 36px; margin-bottom: 10px; }
+        header p { font-size: 18px; color: #ccc; }
+        section { padding: 30px 20px; }
+        h2 { font-size: 26px; color: gold; margin-bottom: 15px; }
+        p { max-width: 600px; margin: auto; line-height: 1.6; }
+        .button { display: inline-block; background: gold; color: #000; padding: 12px 25px; border-radius: 5px; text-decoration: none; margin: 10px; }
+        input, button { padding: 10px; margin: 10px; width: 80%; max-width: 300px; }
+        footer { padding: 20px; font-size: 14px; color: #666; }
+        .fade { opacity: 0; transition: opacity 1s ease-in; }
+        .fade.show { opacity: 1; }
+        .countdown { font-size: 22px; margin-top: 15px; color: #FF4500; }
     </style>
 </head>
-<body>
+<body onload="showContent(); startCountdown();">
     <header>
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Red_chili_pepper_icon.svg/512px-Red_chili_pepper_icon.svg.png" alt="Kalabria Token Logo">
         <h1>Kalabria Token (KLB)</h1>
-        <p>Rinascita del Sud Italia attraverso blockchain, turismo e comunità</p>
-        <nav>
-            <a href="#chi">Chi siamo</a>
-            <a href="#turismo">Turismo</a>
-            <a href="#burn">Burn</a>
-            <a href="#tokenomics">Tokenomics</a>
-            <a href="#roadmap">Roadmap</a>
-            <a href="#partecipare">Partecipa</a>
-        </nav>
+        <p>Minimal presale site – costruisci il futuro del Sud con blockchain</p>
     </header>
-    <section id="chi">
+    <section class="fade" id="about">
         <h2>Chi siamo</h2>
-        <p>Kalabria Token è una meme coin che promuove il turismo esperienziale e il recupero territoriale in Calabria. L'obiettivo è costruire una community internazionale per finanziare la rinascita di borghi abbandonati e creare mete turistiche crypto-friendly.</p>
+        <p>Kalabria Token è una crypto nata per rilanciare la Calabria, attraverso turismo esperienziale, recupero borghi e innovazione.</p>
     </section>
-    <section id="turismo">
-        <h2>Turismo esperienziale</h2>
-        <div class="slider">
-            <img src="https://via.placeholder.com/250x150?text=Spiaggia" alt="Spiaggia Calabria">
-            <img src="https://via.placeholder.com/250x150?text=Borgo" alt="Borgo Abbandonato">
-            <img src="https://via.placeholder.com/250x150?text=Vigneti" alt="Vigneti Calabresi">
-            <img src="https://via.placeholder.com/250x150?text=Albergo" alt="Render Albergo Diffuso">
-        </div>
-        <p>Il nostro sogno: acquistare terreni, casolari, frantoi e interi borghi abbandonati per creare un <span class="highlight">albergo diffuso</span> crypto-finanziato, dove ogni investitore diventa protagonista della rinascita locale.</p>
+    <section class="fade" id="countdown-section">
+        <h2>Countdown presale</h2>
+        <div class="countdown" id="countdown"></div>
     </section>
-    <section id="burn">
-        <h2>Strategia Burn</h2>
-        <p>Kalabria Token applica:<br>🔥 1% burn su ogni transazione<br>🔥 5% burn su spese legate ai partner calabresi<br>🔥 Burn eventi speciali, visibili su BscScan, con report trimestrali</p>
-    </section>
-    <section id="tokenomics">
-        <h2>Tokenomics</h2>
-        <p>Totale supply: 10 miliardi KLB<br>Presale: 1,5 mld | Liquidity: 3 mld | Team: 1,5 mld (locked) | Marketing: 1 mld | Community/Airdrop: 3 mld</p>
-    </section>
-    <section id="roadmap">
-        <h2>Roadmap</h2>
-        <p>Q2 2025 → Lancio presale<br>Q3 2025 → NFT e staking<br>Q4 2025 → Acquisti immobiliari e design albergo diffuso<br>2026 → Implementazione DAO e lancio ufficiale</p>
-    </section>
-    <section id="partecipare">
-        <h2>Come partecipare</h2>
-        <p>Invia BNB al wallet ufficiale: <span class="highlight">0xTuoWalletPresaleQui</span><br>1 BNB = 10.000.000 KLB (+10% bonus nei primi 15 giorni)</p>
-        <input type="number" id="bnb" placeholder="Inserisci BNB"> <button onclick="calc()">Calcola KLB</button>
+    <section class="fade" id="calculator">
+        <h2>Calcolatore presale</h2>
+        <input type="number" id="bnb" placeholder="Inserisci BNB">
+        <button onclick="calcKLB()">Calcola KLB</button>
         <p id="result"></p>
-        <a class="cta-button" href="https://t.me/kalabriatoken">Telegram</a>
-        <a class="cta-button" href="https://twitter.com/kalabriatoken">Twitter</a>
+    </section>
+    <section class="fade" id="subscribe">
+        <h2>Iscriviti</h2>
+        <input type="text" placeholder="Nome">
+        <input type="email" placeholder="Email">
+        <button>Iscriviti</button>
+        <p style="font-size:12px; color:#888;">(Demo – non salva i dati)</p>
     </section>
     <footer>
-        <p>&copy; 2025 Kalabria Token. Tutti i diritti riservati.</p>
+        &copy; 2025 Kalabria Token – Tutti i diritti riservati
     </footer>
     <script>
-        function calc() {
-            let bnb = parseFloat(document.getElementById('bnb').value);
+        function calcKLB() {
+            const bnb = parseFloat(document.getElementById('bnb').value);
+            const result = document.getElementById('result');
             if (bnb > 0) {
-                let klb = bnb * 10000000 * 1.1;
-                document.getElementById('result').innerText = `Riceverai circa ${klb.toLocaleString()} KLB (bonus incluso)`;
+                const klb = bnb * 10000000 * 1.1;
+                result.textContent = `Riceverai circa ${klb.toLocaleString()} KLB (incluso bonus)`;
             } else {
-                document.getElementById('result').innerText = 'Inserisci un importo valido';
+                result.textContent = 'Inserisci un importo valido';
             }
+        }
+        function showContent() {
+            document.querySelectorAll('.fade').forEach(sec => {
+                sec.classList.add('show');
+            });
+        }
+        function startCountdown() {
+            const endDate = new Date("July 31, 2025 23:59:59").getTime();
+            const countdown = document.getElementById("countdown");
+            const interval = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = endDate - now;
+                if (distance < 0) {
+                    clearInterval(interval);
+                    countdown.textContent = "La presale è terminata!";
+                    return;
+                }
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                countdown.textContent = `${days} giorni ${hours}h ${minutes}m ${seconds}s`;
+            }, 1000);
         }
     </script>
 </body>
