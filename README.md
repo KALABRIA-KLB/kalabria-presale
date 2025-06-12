@@ -1,16 +1,13 @@
+# Kalabria Token - Presale Site (Dracma Style)
 
-# Kalabria Token (KLB) - Sito Completo con Logo
-
-Questo repository contiene il sito ufficiale della presale di Kalabria Token (KLB) con sezioni cliccabili, whitepaper, tokenomics, roadmap, countdown, calcolatore e logo incluso.
+Sito HTML completo per la presale del Kalabria Token (KLB), in stile moneta dorata antica.
 
 ## Contenuto
-- index.html → sito completo responsive
-- /images/logo.png → logo ufficiale
-- README.md → istruzioni
+- `index.html`
+- `/images/logo.png`
+- `README.md`
 
 ## Come usare
-1. Carica tutti i file e la cartella /images su GitHub repository pubblico.
-2. Attiva GitHub Pages.
-3. Ottieni il link pubblico e condividilo.
-
-🚀 Kalabria Token: blockchain, turismo, rinascita del Sud Italia!
+1. Carica tutto su un repo GitHub pubblico
+2. Attiva GitHub Pages
+3. Condividi il link alla community!
