@@ -1,0 +1,1 @@
+// Placeholder del file JS generato da React build
