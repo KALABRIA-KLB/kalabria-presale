@@ -91,11 +91,21 @@
             background-color: #0a0a0a;
             color: #777;
         }
+    
+    .rotate-logo {
+        animation: spin 6s linear infinite;
+        transform-origin: center;
+    }
+    @keyframes spin {
+        0% { transform: rotateY(0deg); }
+        100% { transform: rotateY(360deg); }
+    }
     </style>
+    
 </head>
 <body onload="startCountdown()">
     <header>
-        <img src="images/logo.png" alt="Kalabria Token">
+        <img src="images/logo.png" alt="Kalabria Token" class="rotate-logo">
         <h1>Kalabria Token (KLB)</h1>
         <nav>
             <a href="#chi">Chi siamo</a>
