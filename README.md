@@ -1,14 +1,17 @@
-# Kalabria Token (KLB) Presale - Web3 Site
+# Kalabria Token Presale Web3
 
-## Contenuto
-- index.html — interfaccia per la presale
-- style.css — stile grafico semplice
-- app.js — connessione Web3.js
-- ✅ Mostra il wallet connesso
-- ✅ Invia BNB al contratto
-- ✅ Interazione reale (no demo)
+Questo sito supporta la connessione ai seguenti wallet:
+- MetaMask
+- Trust Wallet
+- Binance Wallet
+- Best Wallet
+- Qualsiasi wallet via WalletConnect
 
-## Come usarlo
-1. Carica tutto su GitHub in un repo pubblico
-2. Vai su Settings → Pages → scegli branch `main` e root
-3. Collega a GitHub Pages e condividi il link
+## Come usare
+1. Apri `index.html`
+2. Connetti il tuo wallet
+3. Inserisci l'importo in BNB
+4. Invia e partecipa alla presale KLB
+
+## Deploy
+Puoi caricare tutto su GitHub Pages oppure su un tuo server personale.

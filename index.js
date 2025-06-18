@@ -1,44 +1,32 @@
+// Collegamento Web3 multi-wallet
+window.addEventListener('DOMContentLoaded', () => {
+  const connectWalletBtn = document.getElementById('connectWallet');
+  const sendBnbBtn = document.getElementById('sendBnb');
+  let provider;
 
-let userAccount;
-
-async function connectWallet() {
+  async function connectWallet() {
     if (window.ethereum) {
-        try {
-            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-            userAccount = accounts[0];
-            document.getElementById('wallet-address').innerText = `Wallet connesso: ${userAccount}`;
-        } catch (err) {
-            console.error("Errore connessione wallet:", err);
-            document.getElementById('message').innerText = "Connessione fallita.";
-        }
+      provider = window.ethereum;
+      await provider.request({ method: 'eth_requestAccounts' });
+      console.log('Wallet connesso con MetaMask o simile');
     } else {
-        alert("Installa MetaMask per connettere il wallet.");
+      alert('Wallet non trovato. Usa MetaMask, Trust Wallet, o WalletConnect');
     }
-}
+  }
 
-async function buyTokens() {
-    const amount = document.getElementById("bnb-amount").value;
-    if (!amount || isNaN(amount)) {
-        alert("Inserisci una quantità valida di BNB.");
-        return;
-    }
+  async function sendBNB() {
+    const bnbAmount = document.getElementById('bnbAmount').value;
+    if (!provider || !bnbAmount) return alert('Connetti il wallet e inserisci un importo');
 
-    const weiAmount = Web3.utils.toWei(amount, 'ether');
-    const presaleAddress = "0x674dc4138445ba55dbf785deeef818129301a861";
+    const accounts = await provider.request({ method: 'eth_accounts' });
+    const tx = {
+      from: accounts[0],
+      to: '0xYourPresaleWalletAddress',
+      value: '0x' + (parseFloat(bnbAmount) * 1e18).toString(16)
+    };
+    await provider.request({ method: 'eth_sendTransaction', params: [tx] });
+  }
 
-    try {
-        await window.ethereum.request({
-            method: "eth_sendTransaction",
-            params: [{
-                from: userAccount,
-                to: presaleAddress,
-                value: Web3.utils.toHex(weiAmount)
-            }]
-        });
-
-        document.getElementById("message").innerText = "✅ BNB inviati! Riceverai i KLB a fine presale.";
-    } catch (error) {
-        console.error(error);
-        document.getElementById("message").innerText = "❌ Transazione annullata o fallita.";
-    }
-}
+  connectWalletBtn.addEventListener('click', connectWallet);
+  sendBnbBtn.addEventListener('click', sendBNB);
+});
