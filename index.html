@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalabria Token (KLB) Presale</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+  <script src="walletconnect.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <img src="logo.png" alt="Kalabria Token Logo" class="logo">
+    <h1>Presale Kalabria Token (KLB)</h1>
+    <p>Connetti il tuo wallet e partecipa alla presale!</p>
+    <button onclick="connectWallet()">🔌 Connetti Wallet</button>
+    <br><br>
+    <input type="number" id="bnbAmount" placeholder="Importo in BNB" />
+    <button onclick="buyTokens()">🚀 Invia BNB</button>
+    <p id="status"></p>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
