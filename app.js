@@ -1,1 +1,0 @@
-// Web3.js logic per connessione wallet e invio BNB
