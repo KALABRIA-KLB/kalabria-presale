@@ -1,21 +1,27 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>Kalabria Token (KLB) Presale</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalabria Token (KLB) Presale</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.8.2/dist/web3.min.js"></script>
 </head>
 <body>
-  <div class="container">
-    <img src="logo-klb.png" alt="Kalabria Token Logo" class="logo">
-    <h1>Kalabria Token (KLB) Presale</h1>
-    <p>Connetti il tuo wallet, invia BNB e ricevi KLB alla fine della presale.</p>
-    <button onclick="connectWallet()">🔌 Connetti Wallet</button>
-    <p id="walletAddress">Wallet: Non connesso</p>
-    <input type="number" id="bnbAmount" placeholder="Inserisci quantità BNB" />
-    <button onclick="sendBNB()">🪙 Acquista KLB</button>
-    <p id="statusMsg"></p>
-  </div>
-  <script src="app.js"></script>
+    <div class="container">
+        <img src="logo.png" alt="Kalabria Token Logo" width="120" />
+        <h1>Kalabria Token (KLB) Presale</h1>
+        <p>Connetti il tuo wallet, invia BNB e ricevi KLB alla fine della presale.</p>
+
+        <button onclick="connectWallet()">🔌 Connetti Wallet</button>
+        <p id="wallet-address">Wallet non connesso</p>
+
+        <input id="bnb-amount" placeholder="Inserisci quantità BNB" />
+        <button onclick="buyTokens()">🚀 Acquista KLB</button>
+
+        <p id="message"></p>
+    </div>
+    <script src="index.js"></script>
 </body>
 </html>
