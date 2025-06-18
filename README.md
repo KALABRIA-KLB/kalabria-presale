@@ -1,3 +1,0 @@
-# Kalabria Token Presale Web3
-
-Guida tecnica...
