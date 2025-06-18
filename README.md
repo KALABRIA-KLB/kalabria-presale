@@ -1,19 +1,18 @@
+
 # Kalabria Token Presale Web3 Site
 
-Questo sito consente agli utenti di:
-- Collegare il proprio wallet (MetaMask, Trust Wallet)
-- Inviare BNB al contratto di presale
-- Ricevere automaticamente i token KLB alla chiusura della presale
+## Cosa contiene
+- `index.html`: Pagina web interattiva per la presale
+- `style.css`: Stile minimale a tema Calabria
+- `app.js`: Script Web3.js per invio BNB e connessione wallet
+- `contractABI.json`: ABI del contratto KLB
+- `README.md`: Questa guida
 
-## File inclusi
-- `index.html`: Pagina principale
-- `style.css`: Stile personalizzato
-- `app.js`: Codice Web3.js per interazione smart contract
-- `contractABI.json`: ABI del contratto
+## Come usarlo
+1. Carica i file su GitHub in un nuovo repository
+2. Vai su Settings > Pages e abilita GitHub Pages dalla branch `main`
+3. Attendi il link pubblico e condividilo con i tuoi investitori
 
 ## Requisiti
-- Hosting (consigliato GitHub Pages)
-- Browser con MetaMask installato
-
-## Collegamento al contratto
-Aggiorna l'indirizzo del contratto nel file `app.js` se necessario.
+- Il contratto deve essere già deployato sulla BNB Smart Chain
+- I token verranno distribuiti manualmente alla fine della presale
