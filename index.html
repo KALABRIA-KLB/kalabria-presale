@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Kalabria Token Presale</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+  <style>
+    body { background-color: #111; color: white; font-family: sans-serif; text-align: center; padding: 2em; }
+    .logo { width: 160px; margin: 20px auto; }
+    .btn { padding: 10px 20px; font-size: 16px; border: none; border-radius: 4px; background-color: #d35400; color: white; cursor: pointer; }
+    .btn:hover { background-color: #e67e22; }
+    .section { margin-top: 2em; }
+    #countdown { font-size: 20px; margin-top: 1em; }
+  </style>
+</head>
+<body>
+
+  <img src="logo.png" alt="Kalabria Token" class="logo">
+  <h1>Kalabria Token (KLB) - Presale Ufficiale</h1>
+
+  <div id="countdown">⏳ Calcolo del tempo restante...</div>
+
+  <div class="section">
+    <button class="btn" onclick="connectWallet()">Connetti Wallet</button>
+    <br><br>
+    <input type="number" id="bnbAmount" placeholder="Inserisci quantità BNB" step="0.01">
+    <br><br>
+    <button class="btn" onclick="buyTokens()">INVIA BNB</button>
+  </div>
+
+  <div id="status" class="section">
+  <div class="section">
+    <h2>📊 Statistiche della Presale</h2>
+    
+    <p id="stats">Caricamento dati...</p>
+    <div id="progress-container" style="background:#eee; border-radius:10px; width:100%; height:30px; margin-top:10px;">
+      <div id="progress-bar" style="background:#4caf50; height:100%; width:0%; border-radius:10px;"></div>
+    </div>
+    <p id="progress-label" style="text-align:right; font-size:0.9em;">0 / 200 BNB</p>
+    
+  </div>
+
+  <script>
+    async function loadStats() {
+      const presaleAbi = [
+        {
+          "inputs": [],
+          "name": "raised",
+          "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "rate",
+          "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+          "stateMutability": "view",
+          "type": "function"
+        }
+      ];
+      const contract = new web3.eth.Contract(presaleAbi, presaleAddress);
+      const raised = await contract.methods.raised().call();
+      const rate = await contract.methods.rate().call();
+      const bnbRaised = web3.utils.fromWei(raised, 'ether');
+      const klb = (bnbRaised * rate).toLocaleString();
+      
+      document.getElementById("stats").innerText =
+     `💰 BNB raccolti: ${bnbRaised} BNB\n🔸 KLB venduti: ${klb}`;
+    }
+
+    if (typeof window.ethereum !== 'undefined') {
+      window.addEventListener("load", () => {
+        if (typeof window.web3 !== "undefined") {
+          loadStats();
+        }
+      });
+    }
+    
+    const presaleAddress = "0x6080640452601260025f6101000a81548160ff021916908Fd6216";
+    const presaleEndTime = new Date("2025-08-30T23:59:59").getTime();
+
+    async function connectWallet() {
+      if (typeof window.ethereum !== 'undefined') {
+        try {
+          await ethereum.request({ method: 'eth_requestAccounts' });
+          window.web3 = new Web3(window.ethereum);
+          document.getElementById("status").innerText = "✅ Wallet connesso";
+        } catch (err) {
+          document.getElementById("status").innerText = "Errore: " + err.message;
+        }
+      } else {
+        alert("Installa MetaMask per continuare.");
+      }
+    }
+
+    async function buyTokens() {
+      const accounts = await web3.eth.getAccounts();
+      const bnb = document.getElementById("bnbAmount").value;
+      if (!bnb || bnb <= 0) return alert("Inserisci una quantità valida di BNB");
+      const value = web3.utils.toWei(bnb, 'ether');
+      try {
+        await web3.eth.sendTransaction({ from: accounts[0], to: presaleAddress, value });
+        document.getElementById("status").innerText = "✅ Transazione inviata!";
+      } catch (err) {
+        document.getElementById("status").innerText = "Errore transazione: " + err.message;
+      }
+    }
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = presaleEndTime - now;
+      if (distance < 0) {
+        document.getElementById("countdown").innerText = "🔥 Presale terminata";
+        return;
+      }
+      const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((distance % (1000 * 60)) / 1000);
+      document.getElementById("countdown").innerText = `⏳ Mancano: ${d}g ${h}h ${m}m ${s}s`;
+    }
+
+    setInterval(updateCountdown, 1000);
+  </script>
+
+</body>
+</html>
