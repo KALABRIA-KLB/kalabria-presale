@@ -62,3 +62,29 @@ section {
     padding: 30px 15px;
   }
 }
+
+/* Stile generale per i bottoni */
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #f1c40f;
+  color: black;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #d4ac0d;
+}
+
+/* Animazione per il logo */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+img[alt="Kalabria Coin"] {
+  animation: spin 4s linear infinite;
+}

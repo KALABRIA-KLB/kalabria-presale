@@ -81,7 +81,7 @@ const modal = new Web3Modal({
 
 let provider, signer, account, presaleContract, tokenContract;
 
-async function connectWallet() {
+async async function connectWallet() {
     const conn = await modal.connect();
     provider = new ethers.providers.Web3Provider(conn);
     signer = provider.getSigner();
@@ -101,7 +101,7 @@ async function approveTokens() {
     showToast("Approvazione completata!");
 }
 
-async function buyTokens() {
+async async function buyTokens() {
     const bnbAmount = prompt("Quanti BNB vuoi investire?");
     if (!bnbAmount) return;
     const tx = await presaleContract.buyTokens({ value: ethers.utils.parseEther(bnbAmount) });
@@ -116,3 +116,7 @@ async function updatePresaleStats() {
     const sold = raised.mul(rate).toString();
     updateChartData(parseInt(sold));
 }
+
+// Espone le funzioni al DOM globale
+window.connectWallet = connectWallet;
+window.buyTokens = buyTokens;
