@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap');
+
+
+/* Reset base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  color: white;
+  background: url('bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  line-height: 1.6;
+}
+
+header {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 1rem 0;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: #f1c40f;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+h1 {
+  color: #f1c40f;
+  margin-top: 10px;
+}
+
+section {
+  padding: 50px 20px;
+  margin: 20px auto;
+  max-width: 800px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  section {
+    padding: 30px 15px;
+  }
+}
+
+/* Stile generale per i bottoni */
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #f1c40f;
+  color: black;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #d4ac0d;
+}
+
+/* Animazione per il logo */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+img[alt="Kalabria Coin"] {
+  animation: spin 4s linear infinite;
+}
