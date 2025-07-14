@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Tokenomics Kalabria</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body style="font-family: Arial, sans-serif; padding: 2em; background: #fff; color: #333;">
+    <h1 style="text-align: center;">Tokenomics Avanzata</h1>
+    <p style="text-align: center; max-width: 800px; margin: auto;">
+        Kalabria Token (KLB) è progettato per supportare lo sviluppo sostenibile del territorio calabrese. La sua distribuzione riflette la trasparenza e la visione del progetto.
+    </p>
+
+    <div style="max-width: 600px; margin: 3em auto;">
+        <canvas id="tokenomicsChart"></canvas>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('tokenomicsChart');
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Airdrop (10%)', 'Team (15%)', 'Marketing (15%)', 'Sviluppo (30%)', 'Liquidity (20%)', 'Comunità (10%)'],
+                datasets: [{
+                    data: [10, 15, 15, 30, 20, 10],
+                    backgroundColor: ['#f39c12', '#2980b9', '#27ae60', '#8e44ad', '#c0392b', '#16a085']
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Distribuzione Totale di 100.000.000 KLB'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
