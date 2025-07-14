@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kalabria Token</title>
+  <link rel="stylesheet" href="style.css" />
+  <script type="module" src="main.js"></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#whitepaper">Whitepaper</a></li>
+        <li><a href="#tokenomics">Tokenomics</a></li>
+        <li><a href="#roadmap">Roadmap</a></li>
+        <li><a href="#presale">Presale</a></li>
+        <li><a href="#contact">Contatti</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <h1>Benvenuto in Kalabria Token</h1>
+    <p>Il primo token dedicato alla Calabria, alla cultura e al futuro.</p>
+    <button onclick="connectWallet()">Connetti Wallet</button>
+  </section>
+
+  <section id="whitepaper">
+    <h2>Whitepaper</h2>
+    <p>Kalabria Token (KLB) nasce come progetto di valorizzazione culturale, territoriale e tecnologica della Calabria...</p>
+  </section>
+
+  <section id="tokenomics">
+    <h2>Tokenomics</h2>
+    <ul>
+      <li><strong>Nome:</strong> Kalabria Token</li>
+      <li><strong>Simbolo:</strong> KLB</li>
+      <li><strong>Blockchain:</strong> Binance Smart Chain</li>
+      <li><strong>Contratto:</strong> 0x5Fe13158f8a4c675e3bc5031f5c8fbCCE95010eC</li>
+      <li><strong>Totale supply:</strong> 100.000.000</li>
+    </ul>
+  </section>
+
+  <section id="roadmap">
+    <h2>Roadmap</h2>
+    <ul>
+      <li>Lancio piattaforma ufficiale</li>
+      <li>Airdrop per i primi sostenitori</li>
+      <li>Marketplace NFT</li>
+    </ul>
+  </section>
+
+  <section id="presale">
+    <h2>Presale KLB</h2>
+    <p>Connetti il tuo wallet per partecipare alla prevendita.</p>
+    <button onclick="connectWallet()">Connetti Wallet</button>
+  </section>
+
+  <section id="contact">
+    <h2>Contatti</h2>
+    <p>Email: kalabriatoken@gmail.com</p>
+    <p><a href="https://x.com/KLBtoken" target="_blank">Twitter / X</a></p>
+    <p><a href="https://www.instagram.com" target="_blank">Instagram</a></p>
+  </section>
+
+<section id="docs">
+  <h2>Documentazione</h2>
+  <p><a href="whitepaper_kalabria_token.pdf" target="_blank">📄 Whitepaper Kalabria Token</a></p>
+  <p><a href="kalabria_audit.pdf" target="_blank">🛡️ Audit Smart Contract Presale</a></p>
+</section>
+
+<section id="chart">
+  <h2>Andamento Vendite Live</h2>
+  <canvas id="salesChart" width="300" height="100" style="background: #fff; border-radius: 10px;"></canvas>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const ctx = document.getElementById('salesChart').getContext('2d');
+let sold = 0;
+
+const chart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: [],
+    datasets: [{
+      label: 'Token Venduti (KLB)',
+      data: [],
+      borderColor: '#28a745',
+      borderWidth: 2,
+      fill: false
+    }]
+  },
+  options: {
+    scales: {
+      x: { display: false },
+      y: { beginAtZero: true }
+    }
+  }
+});
+
+// Simulazione dinamica vendite (aggiornamento ogni 3s)
+setInterval(() => {
+  const now = new Date().toLocaleTimeString();
+  const delta = Math.floor(Math.random() * 500000); // valore simulato
+  sold += delta;
+  chart.data.labels.push(now);
+  chart.data.datasets[0].data.push(sold);
+  chart.update();
+}, 3000);
+</script>
+
+</body>
+</html>
