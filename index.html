@@ -5,36 +5,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kalabria Token</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
-  <script src="https://unpkg.com/web3modal@1.9.12/dist/index.js"></script>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body style="background-image: url('bg.jpg'); background-size: cover; margin:0;">
-  <header>
-    <nav class="navbar">
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#presale">Presale</a></li>
-        <li><a href="#whitepaper">Whitepaper</a></li>
-        <li><a href="#roadmap">Roadmap</a></li>
-        <li><a href="#contact">Contatti</a></li>
-        <li><a href="#tokenomics">Tokenomics</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main id="home">
-    <h1>Kalabria Token</h1>
-    <div style="display:flex; align-items:center; justify-content:center; gap:10px;">
-      <img src="logo_coin.gif" alt="Logo KLB" width="70">
-      <button onclick="connectWallet()">Connetti Wallet</button>
-      <button onclick="buyTokens()">Acquista Ora</button>
+<body style="background-image: url('bg.jpg'); background-size: cover; background-position: center;">
+  <nav class="navbar">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#presale">Presale</a></li>
+      <li><a href="#whitepaper">Whitepaper</a></li>
+      <li><a href="#roadmap">Roadmap</a></li>
+      <li><a href="#tokenomics">Tokenomics</a></li>
+      <li><a href="#contatti">Contatti</a></li>
+    </ul>
+  </nav>
+
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <img src="logo_coin.gif" alt="Kalabria Token Logo" class="logo-spin"/>
+      <button onclick="buyTokens()" class="buy-button">Acquista Ora</button>
     </div>
-  </main>
-  <section id="presale"><h2>Presale</h2></section>
-  <section id="whitepaper"><h2><a href="whitepaper_kalabria_token.pdf" target="_blank">Scarica il Whitepaper</a></h2></section>
-  <section id="roadmap"><h2>Roadmap</h2></section>
-  <section id="contact"><h2>Contatti</h2></section>
-  <section id="tokenomics"><h2><a href="kalabria_audit.pdf" target="_blank">Audit PDF</a></h2></section>
+  </section>
+
+  <section id="whitepaper"><h2>Whitepaper</h2><a href="whitepaper_kalabria_token.pdf" target="_blank">Scarica PDF</a></section>
+  <section id="roadmap"><h2>Roadmap</h2><p>Q3 2025 – Lancio, Q4 – Marketplace, Q1 2026 – DAO</p></section>
+  <section id="tokenomics"><h2>Tokenomics</h2><p>Distribuzione: Airdrop, Team, Marketing, etc.</p></section>
+  <section id="contatti"><h2>Contatti</h2><p>Email: kalabriatoken@gmail.com</p></section>
+  <section id="presale"><h2>Presale</h2><p>Collega il wallet per partecipare alla vendita token.</p></section>
+
   <script src="main.js"></script>
 </body>
 </html>
