@@ -39,8 +39,9 @@ async function buyTokens() {
     }
 
     const amountBNB = prompt("Inserisci l'importo in BNB da spendere:");
-    const amount = ethers.utils.parseEther(amountBNB);
+    if (!amountBNB || isNaN(amountBNB)) return alert("Importo non valido");
 
+    const amount = ethers.utils.parseEther(amountBNB);
     contract = new ethers.Contract(PRESALE_CONTRACT, abi, signer);
     const tx = await contract.buyTokens({ value: amount });
     await tx.wait();
