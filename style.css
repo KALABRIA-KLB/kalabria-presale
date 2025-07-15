@@ -1,0 +1,51 @@
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url('bg.png') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px 20px;
+  border-radius: 0 0 0 15px;
+  z-index: 1000;
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 10px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.hero {
+  padding-top: 150px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
